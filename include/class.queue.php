@@ -3242,7 +3242,7 @@ extends QueueColumnAnnotation {
 	// can't be done as a single entry in the base query because we'd get back more than
 	// one row which would break *everything*
 	// Instead, let the base query run and then pull the data we need in the decorate fn
-	function annotate($query, $name=false) {
+	static function annotate($query, $name=false) {
 		return $query;
 	}
 

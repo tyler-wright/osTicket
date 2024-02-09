@@ -5,7 +5,7 @@ include_once INCLUDE_DIR.'class.ticket.php';
 include_once INCLUDE_DIR.'class.list.php';
 
 class TicketApiController extends ApiController {
-	function getRequest($format)
+	function getRequest($format, $validate=true)
 	{
 		// The parent class defines stuff to pass data in the _body_ of the request
 		// and allows for various formats json/xml/email
@@ -14,7 +14,7 @@ class TicketApiController extends ApiController {
 		// data, otherwise we are just going to use the traditional $_GET/$_POST arrays which
 		// host the request data
 		if ($format)
-			return parent::getRequest($format);
+			return parent::getRequest($format, $validate);
 
 		if ($_SERVER['REQUEST_METHOD'] == "POST")
 			return $_POST;
